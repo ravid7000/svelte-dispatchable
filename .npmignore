@@ -1,0 +1,8 @@
+configs
+scripts
+public
+.editorconfig
+jest.config.js
+dist
+coverage
+src

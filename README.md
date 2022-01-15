@@ -144,5 +144,5 @@ Redux is a very popular state management library mostly used with React framewor
 
 Contributions are always welcome!
 
-See `contributing.md` for ways to get started.
+See [`contributing.md`](https://github.com/ravid7000/svelte-dispatchable/blob/master/contributing.md) for ways to get started.
 
