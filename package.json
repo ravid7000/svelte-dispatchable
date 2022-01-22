@@ -1,12 +1,11 @@
 {
   "name": "svelte-dispatchable",
   "version": "0.0.3",
-  "main": "./build/dispatchable.min.js",
-  "types": "./build/types/dispatchable.d.ts",
+  "main": "./build/dispatchable.js",
+  "types": "./build/dispatchable.d.ts",
   "license": "MIT",
   "files": [
-    "build",
-    "public"
+    "build"
   ],
   "keywords": [
     "svelte",
