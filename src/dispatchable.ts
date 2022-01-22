@@ -1,24 +1,47 @@
-export type Action = {
+type Action = {
   type: string,
   [extraProps: string]: any
 }
 
-export type ActionAny<T> = Action | {
+type ActionAny<T> = Action | {
   (currentState: T, ...extraArgs: any[]): Action
 }
 
-export type Reducer<T> = {
+type Reducer<T> = {
   (state: T, action: Action, ...extraArgs: any[]): T
 }
 
-export type Listener<T> = (value: T) => void
+type Listener<T> = (value: T) => void
 
-export type Dispatchable<T = any> = {
+type Dispatchable<T = any> = {
   dispatch: (action: ActionAny<T>, ...extraArgs: any[]) => void;
   subscribe: (listener: Listener<T>) => () => void;
 }
 
-export function dispatchable<T = any>(initialState: T, reducer: Reducer<T>) {
+/**
+ * Create dispatchable store
+ * 
+ * @example
+ * // create store
+ * const counter = dispatchable(0, (state, action) => {
+ *  switch (action.type) {
+ *   case 'INCREMENT':
+ *    return state + 1
+ *  case 'DECREMENT':
+ *   return state - 1
+ * default:
+ *  return state
+ * }
+ * 
+ * // usage
+ * counter.subscribe()
+ * counter.dispatch({ type: 'INCREMENT' })
+ * 
+ * @param initialState Any
+ * @param reducer Reducer Function
+ * @returns Dispatchable
+ */
+function dispatchable<T = any>(initialState: T, reducer: Reducer<T>) {
   let currentState = initialState;
   let listeners: Listener<T>[] = [];
 
@@ -53,3 +76,6 @@ export function dispatchable<T = any>(initialState: T, reducer: Reducer<T>) {
     subscribe,
   }
 }
+
+export type { Dispatchable, Action, ActionAny, Reducer, Listener }
+export { dispatchable }
