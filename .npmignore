@@ -4,5 +4,6 @@ public
 .editorconfig
 jest.config.js
 dist
+build
 coverage
 src

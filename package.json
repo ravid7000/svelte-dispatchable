@@ -1,8 +1,8 @@
 {
   "name": "svelte-dispatchable",
   "version": "0.0.3",
-  "main": "./build/dispatchable.js",
-  "types": "./build/dispatchable.d.ts",
+  "main": "./dispatchable.js",
+  "types": "./dispatchable.d.ts",
   "license": "MIT",
   "files": [
     "build"
@@ -32,9 +32,9 @@
   "scripts": {
     "clean": "rm -rf build",
     "compress": "uglifyjs ./build/dispatchable.js -o ./build/dispatchable.js -c -m",
-    "build:types": "tsc src/dispatchable.ts --declaration --emitDeclarationOnly --outDir build",
+    "build:types": "tsc src/dispatchable.ts --declaration --emitDeclarationOnly --outDir ./",
     "prebuild": "yarn clean && yarn build:types",
-    "build": "tsc src/dispatchable.ts --outDir build && yarn compress",
+    "build": "tsc src/dispatchable.ts --outDir ./ && yarn compress",
     "test:watch": "jest --watchAll",
     "test": "jest",
     "prepublishOnly": "yarn test && yarn build"
